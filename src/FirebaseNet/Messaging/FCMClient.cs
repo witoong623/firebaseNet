@@ -82,7 +82,7 @@ namespace FirebaseNet.Messaging
         /// </summary>
         public bool TestMode { get; set; }
 
-        private static readonly HttpClient _httpClient = new HttpClient();
+        private static HttpClient _httpClient = new HttpClient();
         /// <summary>
         /// Gets or sets the HttpClient used by the FCMClient.
         /// Aid for test purposes.
@@ -93,7 +93,19 @@ namespace FirebaseNet.Messaging
             {
                 return _httpClient;
             }
+            set
+            {
+                _httpClient = value;
+            }
         }
 
+        /// <summary>
+        /// Set HttpClient
+        /// </summary>
+        /// <param name="httpClient">HttpClient instance</param>
+        public void SetHttpClient(HttpClient httpClient)
+        {
+            HttpClient = httpClient;
+        }
     }
 }
